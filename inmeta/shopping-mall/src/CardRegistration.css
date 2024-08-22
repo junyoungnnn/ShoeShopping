@@ -1,0 +1,85 @@
+.card-registration-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-preview {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 300px;
+  height: 180px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.card p {
+  margin: 0;
+  padding: 5px 0;
+  font-size: 18px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* 카드 비밀번호 입력 필드 스타일링 */
+.password-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.password-input input {
+  width: 45%; /* 각 입력 필드가 2자리 숫자만 입력하므로 더 좁게 설정 */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  text-align: center; /* 숫자가 가운데 정렬되도록 설정 */
+}
+
+.password-placeholder {
+  margin-left: 10px; /* 입력 필드와 ** 텍스트 간격 설정 */
+  font-size: 16px;
+  color: #333;
+}
+
+button {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

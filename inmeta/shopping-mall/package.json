@@ -38,5 +38,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://junyoungnnn.github.io/ShoeShopping"
+  "homepage": "https://junyoungnnn.github.io/ShoeShopping",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
 }

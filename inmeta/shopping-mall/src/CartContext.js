@@ -6,37 +6,37 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addItemToCart = (product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prevItems, { ...product, quantity: 1 }];
-      }
-    });
+    setCartItems((prevItems) => [...prevItems, { ...product, quantity: 1 }]);
   };
 
-  const updateItemQuantity = (id, quantity) => {
+  const updateItemQuantity = (itemId, quantity) => {
     setCartItems((prevItems) =>
-      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, quantity } : item
+      )
     );
+  };
+
+  const removeItemFromCart = (itemId) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
 
   const getTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) =>
-        total + parseInt(item.price.replace(/[^0-9]/g, "")) * item.quantity,
-      0
-    );
+    return cartItems.reduce((total, item) => {
+      const itemPrice = parseInt(item.price.replace(/[^0-9]/g, ""), 10);
+      return total + itemPrice * item.quantity;
+    }, 0);
   };
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addItemToCart, updateItemQuantity, getTotalPrice }}
+      value={{
+        cartItems,
+        addItemToCart,
+        updateItemQuantity,
+        removeItemFromCart,
+        getTotalPrice,
+      }}
     >
       {children}
     </CartContext.Provider>

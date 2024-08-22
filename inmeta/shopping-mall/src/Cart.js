@@ -4,17 +4,19 @@ import { CartContext } from "./CartContext";
 import "./Cart.css";
 
 const Cart = () => {
-  const { cartItems, updateItemQuantity, getTotalPrice } =
+  const { cartItems, updateItemQuantity, removeItemFromCart, getTotalPrice } =
     useContext(CartContext);
   const navigate = useNavigate();
 
   const handlePurchase = () => {
-    navigate("/register-card");
+    navigate("/register-card"); // 카드 등록 페이지로 이동
   };
 
   const handleDecreaseQuantity = (itemId, quantity) => {
     if (quantity > 1) {
       updateItemQuantity(itemId, quantity - 1);
+    } else {
+      removeItemFromCart(itemId); // 수량이 0이 되면 해당 아이템을 삭제
     }
   };
 
@@ -30,9 +32,7 @@ const Cart = () => {
           Home
         </Link>
       </header>
-      <p className="cart-status">
-        현재 {cartItems.length}개의 상품이 담겨있습니다.
-      </p>
+      <p>현재 {cartItems.length}개의 상품이 담겨있습니다.</p>
       <div className="cart-items">
         {cartItems.map((item) => (
           <div key={item.id} className="cart-item">

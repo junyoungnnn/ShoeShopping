@@ -13,6 +13,10 @@ const CardList = () => {
     }
   }, []);
 
+  const handlePaymentSuccess = () => {
+    navigate("/payment-success"); // 결제 완료 페이지로 이동
+  };
+
   const handleAddNewCard = () => {
     navigate("/register-card");
   };
@@ -36,7 +40,9 @@ const CardList = () => {
             <p className="card-holder">{cardData.cardHolderName}</p>
             <p className="card-expiry">{cardData.expiryDate}</p>
           </div>
-          <button className="use-card-button">이 카드로 결제하기</button>
+          <button className="use-card-button" onClick={handlePaymentSuccess}>
+            이 카드로 결제하기
+          </button>
         </div>
       ) : (
         <p>등록된 카드가 없습니다.</p>

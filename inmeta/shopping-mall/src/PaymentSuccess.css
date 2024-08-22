@@ -1,0 +1,55 @@
+.payment-success-container {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  height: 100vh; /* 화면 전체 높이를 사용 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 중앙에 정렬 */
+}
+
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.payment-details p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.total-price {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.amount {
+  font-size: 28px;
+  color: #000;
+  font-weight: bold;
+}
+
+.product-list-button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #ffd700;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.product-list-button:hover {
+  background-color: #ffcc00;
+}

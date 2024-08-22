@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import CardRegistration from "./CardRegistration";
 import { CartProvider } from "./CartContext";
 import CardList from "./CardList";
+import PaymentSuccess from "./PaymentSuccess";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/register-card" element={<CardRegistration />} />
           <Route path="/cards" element={<CardList />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Routes>
       </Router>
     </CartProvider>

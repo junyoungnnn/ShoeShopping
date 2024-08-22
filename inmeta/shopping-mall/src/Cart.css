@@ -7,10 +7,69 @@
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-family: "Arial", sans-serif;
+  box-sizing: border-box;
+}
+
+/* 헤더 스타일 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Home 버튼 스타일 */
+.header .home-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.header .home-button:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cart-items {
   margin: 20px 0;
+  padding-top: 20px; /* 헤더 고정으로 인한 공간 확보 */
+}
+
+.cart-status {
+  margin-top: 80px; /* 헤더와의 간격을 확보하기 위한 마진 */
+  font-size: 16px;
+  color: #333;
+  text-align: center;
 }
 
 .cart-item {
@@ -52,7 +111,7 @@
 .quantity-controls button {
   background-color: #ddd;
   border: none;
-  padding: 5px 10px;
+  padding: 3px 8px;
   cursor: pointer;
 }
 

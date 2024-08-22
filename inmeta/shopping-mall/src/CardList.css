@@ -7,6 +7,26 @@
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-family: "Arial", sans-serif;
+  padding-top: 80px; /* 헤더 공간 확보 */
+}
+
+/* 헤더 스타일 */
+.header {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
 }
 
 .saved-card {
@@ -23,12 +43,39 @@
   padding: 20px;
   border-radius: 10px;
   margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .saved-card .card p {
   margin: 0;
   padding: 5px 0;
   font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.card-number {
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.card-holder,
+.card-expiry {
+  font-size: 14px;
+}
+
+.card-holder {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.card-expiry {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 .use-card-button {

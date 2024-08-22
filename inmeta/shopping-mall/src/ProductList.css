@@ -9,30 +9,46 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header h1 {
   margin: 0;
   font-size: 24px;
+  color: #fff;
 }
 
 .cart-button {
-  padding: 10px 20px;
+  width: 150px; /* 버튼의 넓이 조정 */
+  padding: 6px 12px; /* 버튼 크기를 작게 조정 */
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px; /* 모서리 둥글기 감소 */
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px; /* 폰트 크기 축소 */
 }
 
 .cart-button:hover {
   background-color: #0056b3;
 }
 
+/* 상품 개수 표시 문구 스타일 */
+.product-list p {
+  font-size: 18px; /* 폰트 크기 */
+  color: #333; /* 글자 색상 */
+  font-weight: bold; /* 글자 두께 */
+  margin-bottom: 20px; /* 아래쪽 마진 */
+  text-align: center; /* 가운데 정렬 */
+}
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2열 레이아웃 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
 }
@@ -81,4 +97,9 @@
 
 .product-card button:hover {
   background-color: #444;
+}
+
+.product-card button.clicked {
+  background-color: #888;
+  cursor: not-allowed;
 }

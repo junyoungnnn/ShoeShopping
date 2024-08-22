@@ -9,7 +9,7 @@ import CardList from "./CardList";
 function App() {
   return (
     <CartProvider>
-      <Router>
+      <Router basename="/ShoeShopping">
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/cart" element={<Cart />} />

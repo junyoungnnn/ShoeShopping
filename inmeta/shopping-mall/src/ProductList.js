@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import "./ProductList.css";
@@ -49,33 +49,52 @@ const products = [
 ];
 
 const ProductList = () => {
-  const { addItemToCart } = useContext(CartContext);
+  const { addItemToCart, cartItems } = useContext(CartContext);
   const navigate = useNavigate();
+  const [clicked, setClicked] = useState([]);
 
   const handleCartClick = () => {
     navigate("/cart");
   };
 
+  const handleAddToCart = (product) => {
+    addItemToCart(product);
+    setClicked((prev) => [...prev, product.id]);
+  };
+
   return (
-    <div className="product-list">
-      <div className="header">
+    <div>
+      <header className="header">
         <h1>신발 상품 목록</h1>
         <button className="cart-button" onClick={handleCartClick}>
-          장바구니로 이동
+          장바구니로 이동 ({cartItems.length})
         </button>
+      </header>
+
+      <div className="product-list">
+        <p className="cart-status">현재 {products.length}개의 상품이 있습니다.</p>
+        <div className="product-grid">
+          {products.map((product) => (
+            <div key={product.id} className="product-card">
+              <img src={product.img} alt={product.description} />
+              <h2>{product.brand}</h2>
+              <p>{product.description}</p>
+              <p className="price">{product.price}</p>
+              <button
+                className={clicked.includes(product.id) ? "clicked" : ""}
+                onClick={() => handleAddToCart(product)}
+                disabled={clicked.includes(product.id)}
+              >
+                {clicked.includes(product.id) ? "담음!" : "담기"}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <p>현재 {products.length}개의 상품이 있습니다.</p>
-      <div className="product-grid">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <img src={product.img} alt={product.description} />
-            <h2>{product.brand}</h2>
-            <p>{product.description}</p>
-            <p className="price">{product.price}</p>
-            <button onClick={() => addItemToCart(product)}>담기</button>
-          </div>
-        ))}
-      </div>
+
+      <footer className="footer">
+        <p>&copy; 2024 ShoeShopping. All rights reserved.</p>
+      </footer>
     </div>
   );
 };

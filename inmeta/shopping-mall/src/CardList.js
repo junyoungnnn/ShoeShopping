@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./CardList.css";
 
 const CardList = () => {
@@ -17,15 +17,24 @@ const CardList = () => {
     navigate("/register-card");
   };
 
+  const maskedCardNumber = cardData
+    ? `${cardData.cardNumber.slice(0, 8)} **** ****`
+    : "#### #### #### ####";
+
   return (
     <div className="card-list-container">
-      <h1>보유카드</h1>
+      <header className="header">
+        <h1>보유카드</h1>
+        <Link to="/" className="home-button">
+          Home
+        </Link>
+      </header>
       {cardData ? (
         <div className="saved-card">
           <div className="card">
-            <p>{cardData.cardNumber}</p>
-            <p>{cardData.cardHolderName}</p>
-            <p>{cardData.expiryDate}</p>
+            <p className="card-number">{maskedCardNumber}</p>
+            <p className="card-holder">{cardData.cardHolderName}</p>
+            <p className="card-expiry">{cardData.expiryDate}</p>
           </div>
           <button className="use-card-button">이 카드로 결제하기</button>
         </div>
